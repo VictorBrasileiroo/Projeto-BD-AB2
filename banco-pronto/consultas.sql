@@ -1,5 +1,7 @@
 USE gestao_de_cuidados_idosos;
 
+-- SELECT E JOINS
+
 -- 1. Listar todas as informações dos idosos
 SELECT * FROM idoso;
 
@@ -75,6 +77,8 @@ SELECT
   INNER JOIN cuidador ON avaliacao.id_cuidador = cuidador.id
   INNER JOIN responsavel ON avaliacao.id_responsavel = responsavel.id;
 
+-- AGREGAÇÕES
+
 -- 1. Total de cuidadores cadastrados
 SELECT COUNT(*) as total_cuidadores FROM cuidador;   
 
@@ -104,6 +108,8 @@ SELECT COUNT(*) FROM responsavel;
 
 -- 10. total de endereços de idosos cadastrados
 SELECT COUNT(*) FROM endereco_idoso;
+
+-- ORDENAÇÕES
 
 -- 1. Quantidade de avaliações por cuidador
 SELECT id_cuidador, count(*) as total_avaliacoes
@@ -155,6 +161,9 @@ SELECT id_cuidador, count(*) as total_contatos
 -- 10. Agendamentos ordenados por data de inicio
 SELECT * FROM agendamento
   ORDER BY data_hora_inicio ASC;
+
+
+-- SUBCONSULTAS
 
 -- 1. Listar cuidadores que possuem avaliações
 SELECT * FROM cuidador
